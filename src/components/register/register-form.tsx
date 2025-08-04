@@ -7,24 +7,56 @@ import { ImCross } from "react-icons/im";
 import Link from "next/link";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useFormik } from "formik";
+import { validationRegisterSchema } from "@/features/register/schemas/validationRegisterSchema";
+import axios, { AxiosError } from "axios";
+import { toast } from "react-toastify";
 
 export default function RegisterForm() {
-  const [email, setEmail] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [password, setPassword] = useState("");
 
+  // Toggle show password
+  const toggleShow = () => setShowPassword((prev) => !prev);
+
+  // Handle form submission
+  const handleRegister = async ({
+    username,
+    email,
+    password,
+  }: {
+    username: string;
+    email: string;
+    password: string;
+  }) => {
+    try {
+      const response = await axios.post("/api/authentication/register", {
+        username,
+        email,
+        password,
+      });
+      console.log(response.data);
+      toast.success(response?.data?.message);
+    } catch (error) {
+      const err = error as AxiosError<{ message: string }>;
+      toast.error(err?.response?.data?.message);
+    }
+  };
+
+  // Form Validation
   const formik = useFormik({
     initialValues: {
       username: "",
       email: "",
       password: "",
     },
-    onSubmit: (values) => {
-      console.log(values);
+    validationSchema: validationRegisterSchema,
+    onSubmit: ({ username, email, password }) => {
+      handleRegister({
+        username: username,
+        email: email,
+        password: password,
+      });
     },
   });
-
-  const toggleShow = () => setShowPassword((prev) => !prev);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100/50 p-4">
@@ -49,67 +81,87 @@ export default function RegisterForm() {
           Join the Nintendo universe — sign up and start your adventure!
         </p>
 
-        {/* Username Input */}
-        <div className="relative mb-4 text-black">
-          <label htmlFor="username" className="block text-sm font-medium">
-            Username
-          </label>
-          <div className="relative mt-1">
-            <input
-              type="text"
-              id="username"
-              className="w-full rounded-md border py-2 pr-10 pl-4 placeholder-gray-400"
-              placeholder="Write your username"
-            />
-            <FaUser className="absolute top-3 right-3 text-gray-400" />
+        {/* Form */}
+        <form onSubmit={formik.handleSubmit}>
+          {/* Username Input */}
+          <div className="relative mb-4 text-black">
+            <label htmlFor="username" className="block text-sm font-medium">
+              Username
+            </label>
+            <div className="relative mt-1">
+              <input
+                type="text"
+                id="username"
+                name="username"
+                value={formik.values.username}
+                onChange={formik.handleChange}
+                className="w-full rounded-md border py-2 pr-10 pl-4 placeholder-gray-400"
+                placeholder="Write your username"
+              />
+              <FaUser className="absolute top-3 right-3 text-gray-400" />
+            </div>
+            {formik.errors.username && formik.touched.username ? (
+              <div className="text-red-500">{formik.errors.username}</div>
+            ) : null}
           </div>
-        </div>
 
-        {/* Email Input */}
-        <div className="relative mb-4 text-black">
-          <label htmlFor="email" className="block text-sm font-medium">
-            Email
-          </label>
-          <div className="relative mt-1">
-            <input
-              type="text"
-              id="email"
-              className="w-full rounded-md border py-2 pr-10 pl-4 placeholder-gray-400"
-              placeholder="Write your email "
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+          {/* Email Input */}
+          <div className="relative mb-4 text-black">
+            <label htmlFor="email" className="block text-sm font-medium">
+              Email
+            </label>
+            <div className="relative mt-1">
+              <input
+                type="text"
+                id="email"
+                name="email"
+                value={formik.values.email}
+                onChange={formik.handleChange}
+                className="w-full rounded-md border py-2 pr-10 pl-4 placeholder-gray-400"
+                placeholder="Write your email "
+              />
+            </div>
+            {formik.errors.email && formik.touched.email ? (
+              <div className="text-red-500">{formik.errors.email}</div>
+            ) : null}
           </div>
-        </div>
 
-        {/* Password Input */}
-        <div className="relative mb-4 text-black">
-          <label htmlFor="password" className="block text-sm font-medium">
-            Password
-          </label>
-          <div className="relative mt-1">
-            <input
-              type={showPassword ? "text" : "password"}
-              id="password"
-              className="w-full rounded-md border py-2 pr-10 pl-4 placeholder-gray-400"
-              placeholder="Write your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <button
-              type="button"
-              onClick={toggleShow}
-              className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
-            >
-              {showPassword ? <FaEyeSlash /> : <FaEye />}
-            </button>
+          {/* Password Input */}
+          <div className="relative mb-4 text-black">
+            <label htmlFor="password" className="block text-sm font-medium">
+              Password
+            </label>
+            <div className="relative mt-1">
+              <input
+                type={showPassword ? "text" : "password"}
+                id="password"
+                name="password"
+                value={formik.values.password}
+                onChange={formik.handleChange}
+                className="w-full rounded-md border py-2 pr-10 pl-4 placeholder-gray-400"
+                placeholder="Write your password"
+              />
+              <button
+                type="button"
+                onClick={toggleShow}
+                className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+              >
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </button>
+            </div>
+            {formik.errors.password && formik.touched.password ? (
+              <div className="text-red-500">{formik.errors.password}</div>
+            ) : null}
           </div>
-        </div>
 
-        {/* Continue Button */}
-        <button className="w-full rounded-full bg-blue-700 py-2 font-semibold text-white transition hover:bg-blue-800">
-          Register
-        </button>
+          {/* Continue Button */}
+          <button
+            type="submit"
+            className="w-full rounded-full bg-blue-700 py-2 font-semibold text-white transition hover:bg-blue-800"
+          >
+            Register
+          </button>
+        </form>
       </div>
     </div>
   );
