@@ -7,36 +7,39 @@ import { ImCross } from "react-icons/im";
 import Link from "next/link";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useFormik } from "formik";
-import { validationRegisterSchema } from "@/features/register/schemas/validationRegisterSchema";
+import useAuthStore from "@/store/useAuthStore";
+import { IUserProps } from "@/features/login/type";
 import axios, { AxiosError } from "axios";
 import { toast } from "react-toastify";
+import { validationLoginSchema } from "@/features/login/schemas/validationLoginSchema";
 import { useRouter } from "next/navigation";
 
-export default function RegisterForm() {
+export default function LoginForm() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
+  const { setIsAuthLogin } = useAuthStore();
 
   // Toggle show password
   const toggleShow = () => setShowPassword((prev) => !prev);
 
   // Handle form submission
-  const handleRegister = async ({
+  const handleLogin = async ({
     username,
-    email,
     password,
-  }: {
-    username: string;
-    email: string;
-    password: string;
-  }) => {
+  }: Pick<IUserProps, "username" | "password">) => {
     try {
-      const response = await axios.post("/api/authentication/register", {
-        username,
-        email,
-        password,
+      const response = await axios.post("/api/authentication/login", {
+        username: username,
+        password: password,
       });
+
       toast.success(response?.data?.message);
-      router.push("/login");
+      console.log(response.data);
+      setIsAuthLogin({
+        username: response?.data?.data?.username,
+        objectId: response?.data?.data?.objectId,
+      });
+      router.replace("/");
     } catch (error) {
       const err = error as AxiosError<{ message: string }>;
       toast.error(err?.response?.data?.message);
@@ -47,17 +50,11 @@ export default function RegisterForm() {
   const formik = useFormik({
     initialValues: {
       username: "",
-      email: "",
       password: "",
     },
-    validationSchema: validationRegisterSchema,
-    onSubmit: async ({ username, email, password }) => {
-      await handleRegister({
-        username: username,
-        email: email,
-        password: password,
-      });
-      formik.resetForm();
+    validationSchema: validationLoginSchema,
+    onSubmit: ({ username, password }) => {
+      handleLogin({ username, password });
     },
   });
 
@@ -78,10 +75,10 @@ export default function RegisterForm() {
 
         {/* Title */}
         <h2 className="mb-2 text-center text-xl font-bold text-black">
-          Create your NINTENDO<sup>®</sup> account
+          Log in to your NINTENDO<sup>®</sup> account
         </h2>
         <p className="mb-6 text-center text-sm text-gray-600">
-          Join the Nintendo universe — sign up and start your adventure!
+          Welcome back to the Nintendo universe — continue your adventure!
         </p>
 
         {/* Form */}
@@ -105,27 +102,6 @@ export default function RegisterForm() {
             </div>
             {formik.errors.username && formik.touched.username ? (
               <div className="text-red-500">{formik.errors.username}</div>
-            ) : null}
-          </div>
-
-          {/* Email Input */}
-          <div className="relative mb-4 text-black">
-            <label htmlFor="email" className="block text-sm font-medium">
-              Email
-            </label>
-            <div className="relative mt-1">
-              <input
-                type="text"
-                id="email"
-                name="email"
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                className="w-full rounded-md border py-2 pr-10 pl-4 placeholder-gray-400"
-                placeholder="Write your email "
-              />
-            </div>
-            {formik.errors.email && formik.touched.email ? (
-              <div className="text-red-500">{formik.errors.email}</div>
             ) : null}
           </div>
 
@@ -162,7 +138,7 @@ export default function RegisterForm() {
             type="submit"
             className="w-full rounded-full bg-blue-700 py-2 font-semibold text-white transition hover:bg-blue-800"
           >
-            Register
+            Login
           </button>
         </form>
       </div>

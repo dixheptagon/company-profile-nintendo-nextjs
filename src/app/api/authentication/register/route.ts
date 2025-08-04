@@ -4,7 +4,6 @@ import Backendless from "@/lib/backendless";
 export async function POST(request: NextRequest) {
   try {
     const user = await request.json();
-    console.log(user);
 
     await Backendless.UserService.register(user);
     return NextResponse.json({

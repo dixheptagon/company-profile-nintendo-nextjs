@@ -7,9 +7,11 @@ import Image from "next/image";
 import { FaUserAlt } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 import Link from "next/link";
+import useAuthStore from "@/store/useAuthStore";
 
 export default function LoginSignUpDrawer() {
   const [isOpen, setIsOpen] = useState(false);
+  const { username, clear } = useAuthStore();
 
   return (
     <>
@@ -19,7 +21,11 @@ export default function LoginSignUpDrawer() {
         className="login-bar flex cursor-pointer items-center gap-3 rounded-2xl border border-red-700 px-3 py-1 font-semibold text-red-500 hover:text-red-700"
       >
         <FaUserAlt />
-        <span className="text-sm">Log In/Sign Up</span>
+        {username ? (
+          <span className="text-sm">{username}</span>
+        ) : (
+          <span className="text-sm">Log In/Sign Up</span>
+        )}
       </div>
 
       <AnimatePresence>
@@ -72,9 +78,26 @@ export default function LoginSignUpDrawer() {
                 </ul>
               </div>
 
-              <button className="mb-3 w-full rounded-md bg-red-600 py-2 font-bold text-white hover:bg-red-700">
-                Log In
-              </button>
+              {username ? (
+                <button
+                  onClick={() => {
+                    clear();
+                    setIsOpen(false);
+                  }}
+                  className="mb-3 w-full rounded-md bg-red-600 py-2 font-bold text-white hover:bg-red-700"
+                >
+                  Log Out
+                </button>
+              ) : (
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="mb-3 w-full rounded-md bg-red-600 py-2 font-bold text-white hover:bg-red-700"
+                >
+                  {" "}
+                  <Link href="/login">Log In</Link>
+                </button>
+              )}
+
               <button
                 onClick={() => setIsOpen(false)}
                 className="w-full rounded-md border-2 border-red-600 py-2 font-bold text-red-600 hover:bg-red-100"
