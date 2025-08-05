@@ -1,0 +1,24 @@
+export default function BlogHeader() {
+  return (
+    <header className="my-10 px-4 text-center">
+      <h1 className="mb-2 text-3xl font-bold text-red-700 md:text-4xl">
+        Nintendo Dev Blog
+      </h1>
+      <p className="mx-auto max-w-2xl text-base text-gray-600 md:text-lg">
+        Explore updates, insights, and behind-the-scenes stories from the world
+        of Nintendo development.
+      </p>
+
+      <div className="my-8 flex flex-col items-center justify-between gap-4 md:flex-row">
+        <input
+          type="text"
+          placeholder="Search for a blogs"
+          className="w-full rounded-lg border border-gray-500 px-4 py-2 text-black md:w-1/3"
+        />
+        <button className="rounded-lg bg-red-700 px-4 py-2 text-white transition hover:bg-red-800">
+          Create Blog
+        </button>
+      </div>
+    </header>
+  );
+}
