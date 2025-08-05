@@ -3,4 +3,5 @@ export interface IUserProps {
   password: string;
   username: string;
   objectId: string;
+  role: string;
 }

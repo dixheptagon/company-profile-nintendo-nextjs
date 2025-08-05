@@ -1,3 +1,6 @@
+import { IoIosAddCircle } from "react-icons/io";
+import Link from "next/link";
+
 export default function BlogHeader() {
   return (
     <header className="my-10 px-4 text-center">
@@ -16,7 +19,10 @@ export default function BlogHeader() {
           className="w-full rounded-lg border border-gray-500 px-4 py-2 text-black md:w-1/3"
         />
         <button className="rounded-lg bg-red-700 px-4 py-2 text-white transition hover:bg-red-800">
-          Create Blog
+          <Link href="/blog/create-blog" className="flex items-center gap-2">
+            <IoIosAddCircle className="text-2xl" />
+            Create Blog
+          </Link>
         </button>
       </div>
     </header>
