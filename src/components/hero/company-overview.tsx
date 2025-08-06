@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { CgGames } from "react-icons/cg";
 import { FaSmileBeam } from "react-icons/fa";
 import { IoCodeSlash } from "react-icons/io5";
@@ -61,7 +62,7 @@ export default function CompanyOverview() {
                 <p className="mt-2 text-sm text-gray-600">{card.description}</p>
               </div>
               <div className="relative">
-                <img
+                <Image
                   src={card.image}
                   alt={card.overlay}
                   className="h-46 w-full object-cover"

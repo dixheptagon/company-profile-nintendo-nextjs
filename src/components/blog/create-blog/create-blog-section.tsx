@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import useAuthStore from "@/store/useAuthStore";
+import Image from "next/image";
 
 export default function CreateBlog() {
   const router = useRouter();
@@ -106,7 +107,7 @@ export default function CreateBlog() {
             )}
 
             {preview && (
-              <img
+              <Image
                 src={preview}
                 alt="Preview"
                 className="w-full rounded object-contain"

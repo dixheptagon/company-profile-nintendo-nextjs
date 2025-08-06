@@ -1,6 +1,7 @@
 import React from "react";
 import { FaXmark } from "react-icons/fa6";
 import Link from "next/link";
+import Image from "next/image";
 
 interface TestimonialCardProps {
   name: string;
@@ -22,7 +23,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           <FaXmark />
         </button>
         <div className="mb-3 flex items-center gap-3">
-          <img
+          <Image
             src={avatarUrl}
             alt={name}
             className="h-10 w-10 rounded-full object-cover"

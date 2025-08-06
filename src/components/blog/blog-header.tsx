@@ -16,11 +16,6 @@ export default function BlogHeader() {
       </p>
 
       <div className="my-8 flex flex-col items-center justify-between gap-4 md:flex-row">
-        <input
-          type="text"
-          placeholder="Search for a blogs"
-          className="w-full rounded-lg border border-gray-500 px-4 py-2 text-black md:w-1/3"
-        />
         {role === "admin" ? (
           <button className="rounded-lg bg-red-700 px-4 py-2 text-white transition hover:bg-red-800">
             <Link href="/blog/create-blog" className="flex items-center gap-2">

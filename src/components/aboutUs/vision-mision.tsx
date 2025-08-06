@@ -1,4 +1,5 @@
 // components/VisionMission.tsx
+import Image from "next/image";
 
 export default function VisionMission() {
   return (
@@ -11,7 +12,7 @@ export default function VisionMission() {
       <div className="relative z-10 mx-auto grid max-w-6xl items-start gap-12 pt-5 md:grid-cols-2">
         {/* Vision Section */}
         <div className="text-white">
-          <img
+          <Image
             src="/vision-mission/vision.jpg"
             alt="Vision team"
             className="mb-6 h-80 w-full rounded-md object-cover shadow-lg"
@@ -19,7 +20,7 @@ export default function VisionMission() {
           <h3 className="mb-3 text-2xl font-bold">🌟 Vision Statement</h3>
           <blockquote className="border-l-4 border-white pl-4 text-sm leading-relaxed text-white md:text-base">
             To create a world full of smiles through the power of play. We
-            believe that games aren't just about winning or losing — they`re
+            believe that games aren`t just about winning or losing — they`re
             about having fun, sharing moments, and sparking joy across all ages.
             At Nintendo, our dream is simple: to make people smile, wherever
             they are in the world.
@@ -28,7 +29,7 @@ export default function VisionMission() {
 
         {/* Mission Section */}
         <div className="text-white">
-          <img
+          <Image
             src="/vision-mission/mission.jpg"
             alt="Mission in action"
             className="mb-6 h-80 w-full rounded-md object-cover shadow-lg"

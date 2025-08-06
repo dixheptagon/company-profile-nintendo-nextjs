@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
 import { FaRegArrowAltCircleLeft } from "react-icons/fa";
+import Image from "next/image";
 
 const historyData = [
   {
@@ -174,7 +175,7 @@ export default function CompanyHistorySlider() {
             transition={{ duration: 0.5 }}
             className="text-center"
           >
-            <img
+            <Image
               src={currentItem.image}
               alt={currentItem.year}
               className="mx-auto mb-6 max-h-[300px] max-w-[300px] rounded-lg object-cover shadow-lg"
