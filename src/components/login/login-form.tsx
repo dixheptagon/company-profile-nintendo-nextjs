@@ -38,6 +38,7 @@ export default function LoginForm() {
       setIsAuthLogin({
         username: response?.data?.data?.username,
         objectId: response?.data?.data?.objectId,
+        role: response?.data?.data?.role,
       });
       router.replace("/");
     } catch (error) {

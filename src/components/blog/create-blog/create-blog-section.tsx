@@ -7,6 +7,7 @@ import { useFormik } from "formik";
 import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import useAuthStore from "@/store/useAuthStore";
 
 export default function CreateBlog() {
   const router = useRouter();
@@ -27,7 +28,6 @@ export default function CreateBlog() {
         blog_description: description,
         blog_image: imageUrl,
       });
-      console.log(response);
       toast.success(response?.data?.message);
     } catch (error) {
       const err = error as AxiosError<{ message: string }>;
@@ -60,6 +60,14 @@ export default function CreateBlog() {
   useEffect(() => {
     setPreview(formik.values.imageUrl);
   }, [formik.values.imageUrl]);
+
+  // Check role and redirect if not admin
+  const { role } = useAuthStore();
+  useEffect(() => {
+    if (role !== "admin") {
+      router.push("/blog");
+    }
+  }, [role]);
 
   return (
     <div className="min-h-screen bg-red-700 p-8 text-black">

@@ -4,7 +4,6 @@ import Backendless from "@/lib/backendless";
 export async function POST(req: NextRequest) {
   try {
     const blog = await req.json();
-    console.log(blog);
 
     const response = await Backendless.Data.of("BlogPosts").save(blog);
     return NextResponse.json({

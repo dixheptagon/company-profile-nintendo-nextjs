@@ -27,10 +27,11 @@ export default function AuthProvider({
       setIsAuthLogin({
         username: res?.data?.data?.username,
         objectId: res?.data?.data?.objectId,
+        role: res?.data?.data?.role,
       });
     } catch (error) {
       toast.error("Email not found, please login again!");
-      setIsAuthLogin({ username: "", objectId: "" });
+      setIsAuthLogin({ username: "", objectId: "", role: "" });
       router.replace("/login");
     }
   };
