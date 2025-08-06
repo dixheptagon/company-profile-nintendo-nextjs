@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { CgGames } from "react-icons/cg";
 import { FaSmileBeam } from "react-icons/fa";
 import { IoCodeSlash } from "react-icons/io5";

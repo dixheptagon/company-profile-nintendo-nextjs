@@ -8,7 +8,7 @@ import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import useAuthStore from "@/store/useAuthStore";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 export default function CreateBlog() {
   const router = useRouter();

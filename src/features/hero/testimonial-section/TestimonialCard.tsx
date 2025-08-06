@@ -1,7 +1,7 @@
 import React from "react";
 import { FaXmark } from "react-icons/fa6";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 interface TestimonialCardProps {
   name: string;

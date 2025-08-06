@@ -3,7 +3,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { FaUserAlt } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 import Link from "next/link";
