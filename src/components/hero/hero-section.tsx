@@ -65,9 +65,9 @@ export default function NintendoHero() {
   return (
     <section className="relative h-[42.5rem] w-full overflow-hidden">
       <Image
+        layout="fill"
         src={src}
         alt={title}
-        fill
         className="object-cover transition-all duration-500 ease-in-out"
         priority
       />

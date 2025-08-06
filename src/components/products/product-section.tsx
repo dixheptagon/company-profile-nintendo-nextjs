@@ -20,7 +20,8 @@ export default function NintendoPromoSection() {
           <Image
             src="/products/products-image.avif"
             alt="Play Together Sale"
-            fill
+            layout="fill"
+            priority
             className="object-cover"
           />
         </div>
