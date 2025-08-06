@@ -24,6 +24,8 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         </button>
         <div className="mb-3 flex items-center gap-3">
           <Image
+            width={40}
+            height={40}
             src={avatarUrl}
             alt={name}
             className="h-10 w-10 rounded-full object-cover"

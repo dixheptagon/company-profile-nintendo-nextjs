@@ -63,6 +63,8 @@ export default function CompanyOverview() {
               </div>
               <div className="relative">
                 <Image
+                  width={500}
+                  height={500}
                   src={card.image}
                   alt={card.overlay}
                   className="h-46 w-full object-cover"

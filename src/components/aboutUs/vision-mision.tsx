@@ -13,6 +13,8 @@ export default function VisionMission() {
         {/* Vision Section */}
         <div className="text-white">
           <Image
+            width={500}
+            height={500}
             src="/vision-mission/vision.jpg"
             alt="Vision team"
             className="mb-6 h-80 w-full rounded-md object-cover shadow-lg"
@@ -30,6 +32,8 @@ export default function VisionMission() {
         {/* Mission Section */}
         <div className="text-white">
           <Image
+            width={500}
+            height={500}
             src="/vision-mission/mission.jpg"
             alt="Mission in action"
             className="mb-6 h-80 w-full rounded-md object-cover shadow-lg"
