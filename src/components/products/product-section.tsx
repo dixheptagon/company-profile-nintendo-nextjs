@@ -6,7 +6,7 @@ export default function NintendoPromoSection() {
   return (
     <section className="flex min-h-screen flex-col items-center justify-center bg-red-700 px-4 py-8">
       {/* Header */}
-      <div className="mb-10 flex flex-col items-center text-white">
+      <div className="mt-3 mb-10 flex flex-col items-center text-white">
         <SiNintendo className="text-7xl" />
         <h2 className="mt-4 text-2xl font-semibold md:text-3xl">
           My Nintendo Store
