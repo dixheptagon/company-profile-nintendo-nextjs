@@ -16,7 +16,6 @@ export async function GET(
       data: findDataBlogs,
     });
   } catch (error) {
-    console.log(error);
     const err = error as {
       status?: number;
       message?: string;

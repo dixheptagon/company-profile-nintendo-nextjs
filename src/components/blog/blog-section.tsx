@@ -6,6 +6,7 @@ import Image from "next/legacy/image";
 import { IBlogProps } from "@/features/blog/type";
 import axios from "axios";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 export default function BlogPage() {
   const [blogs, setBlogs] = useState<IBlogProps[]>([]);
@@ -14,10 +15,9 @@ export default function BlogPage() {
     try {
       const response = await axios.get("/api/blog");
 
-      console.log(response);
       setBlogs(response.data.data);
     } catch (error) {
-      console.log(error);
+      toast.error("Failed to fetch data!");
     }
   };
 

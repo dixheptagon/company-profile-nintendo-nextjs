@@ -23,7 +23,6 @@ export default function AuthProvider({
         },
       });
 
-      console.log(res.data);
       setIsAuthLogin({
         username: res?.data?.data?.username,
         objectId: res?.data?.data?.objectId,

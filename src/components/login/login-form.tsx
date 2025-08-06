@@ -34,7 +34,6 @@ export default function LoginForm() {
       });
 
       toast.success(response?.data?.message);
-      console.log(response.data);
       setIsAuthLogin({
         username: response?.data?.data?.username,
         objectId: response?.data?.data?.objectId,
