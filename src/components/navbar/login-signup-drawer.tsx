@@ -65,7 +65,7 @@ export default function LoginSignUpDrawer() {
                   src="/navbar/drawer-image.avif" // contoh image lokal (lo bisa pakai image dari public folder)
                   alt="Login icons"
                   width={300}
-                  height={80}
+                  height={125}
                   className="mx-auto mb-3"
                 />
                 <p className="mb-2 text-sm font-semibold text-gray-700">
