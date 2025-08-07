@@ -2,7 +2,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 interface TeamMember {
   name: string;

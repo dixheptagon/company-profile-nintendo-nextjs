@@ -16,6 +16,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL || "";
+
 export const metadata: Metadata = {
   title: "Nintendo® - Official Site",
   description:
@@ -36,7 +38,7 @@ export const metadata: Metadata = {
     title: "Nintendo® - Official Site",
     description:
       "Join the world of Nintendo® — Discover legendary characters, shop exclusive products, read latest blogs, and connect with the Nintendo community.",
-    url: "https://company-profile-nintendo-nextjs-3xl.vercel.app/",
+    url: baseUrl,
     siteName: "Nintendo® - Official Site",
     images: [
       {
