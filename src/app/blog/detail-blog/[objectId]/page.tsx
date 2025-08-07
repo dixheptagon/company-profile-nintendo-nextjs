@@ -10,9 +10,12 @@ interface IParams {
 
 // Fungsi untuk mengambil data blog
 const GetDetailsBlog = async ({ objectId }: { objectId: string }) => {
-  const res = await fetch(`http://localhost:3000/api/blog/detail/${objectId}`, {
-    cache: "no-cache",
-  });
+  const res = await fetch(
+    `https://company-profile-nintendo-nextjs-3xl.vercel.app/api/blog/detail/${objectId}`,
+    {
+      cache: "no-cache",
+    },
+  );
 
   const { data } = await res.json();
   if (!res.ok) throw new Error(`Blog with objectId ${objectId} not found!`);

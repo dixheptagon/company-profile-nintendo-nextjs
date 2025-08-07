@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     title: "Nintendo® - Official Site",
     description:
       "Join the world of Nintendo® — Discover legendary characters, shop exclusive products, read latest blogs, and connect with the Nintendo community.",
-    url: "https://your-nintendo-clone-site.com",
+    url: "https://company-profile-nintendo-nextjs-3xl.vercel.app/",
     siteName: "Nintendo® - Official Site",
     images: [
       {
