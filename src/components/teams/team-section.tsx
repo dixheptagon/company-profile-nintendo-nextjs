@@ -16,6 +16,21 @@ interface User {
   };
 }
 
+const userImage = [
+  "/teams-section/1.png",
+  "/teams-section/2.png",
+  "/teams-section/3.png",
+  "/teams-section/4.png",
+  "/teams-section/5.png",
+  "/teams-section/6.png",
+  "/teams-section/7.png",
+  "/teams-section/8.png",
+  "/teams-section/9.png",
+  "/teams-section/10.png",
+  "/teams-section/11.png",
+  "/teams-section/12.png",
+];
+
 export default function TeamsSection() {
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
@@ -45,12 +60,12 @@ export default function TeamsSection() {
           <p className="text-center text-white">Loading...</p>
         ) : (
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
-            {users.map((user) => (
+            {users.map((user, index) => (
               <TeamCard
                 key={user.login.uuid}
                 name={`${user.name.first} ${user.name.last}`}
                 position="Team Member"
-                image={user.picture.large}
+                image={userImage[index]}
               />
             ))}
           </div>

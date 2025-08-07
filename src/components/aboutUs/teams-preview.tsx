@@ -17,6 +17,12 @@ interface User {
   };
 }
 
+const userImage = [
+  "/teams-section/1.png",
+  "/teams-section/2.png",
+  "/teams-section/3.png",
+];
+
 export default function TeamsPreview() {
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
@@ -46,12 +52,12 @@ export default function TeamsPreview() {
           <p className="text-center text-gray-500">Loading...</p>
         ) : (
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
-            {users.map((user) => (
+            {users.map((user, index) => (
               <TeamCard
                 key={user.login.uuid}
                 name={`${user.name.first} ${user.name.last}`}
                 position="Team Member"
-                image={user.picture.large}
+                image={userImage[index]}
               />
             ))}
           </div>

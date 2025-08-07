@@ -16,13 +16,14 @@ export default function TeamCard({ name, position, image }: TeamMember) {
       whileHover={{ scale: 1.03 }}
       className="rounded-2xl bg-gray-200 p-4 text-center shadow-md transition-all"
     >
-      <div className="relative mx-auto mb-4 h-24 w-24 overflow-hidden rounded-full border border-gray-300">
+      <div className="relative mx-auto mb-4 h-24 w-24 overflow-hidden rounded-full border border-gray-300 bg-green-800">
         <Image
           src={image}
           alt={name}
           width={100}
           height={100}
           objectFit="cover"
+          className="absolute top-1 left-0 h-full w-full"
         />
       </div>
       <h3 className="text-lg font-semibold text-gray-800">{name}</h3>
