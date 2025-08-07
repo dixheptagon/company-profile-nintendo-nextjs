@@ -1,36 +1,136 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎮 Nintendo Company Profile Website
 
-## Getting Started
+> A modern, responsive company profile for **Nintendo**, built with **Next.js** and **Tailwind CSS**.  
+> Designed to bring Nintendo’s playful spirit and rich legacy to life — on every screen, for every fan.
 
-First, run the development server:
+---
+
+## 🌟 Overview
+
+Nintendo has been shaping the world of entertainment and innovation **since 1889**.  
+This project is a tribute to that legacy — a clean, fun, and user-friendly company profile website built for fans and users to explore Nintendo’s:
+
+- 🏢 Company background  
+- 🎯 Vision & mission  
+- 👥 Team members  
+- 🛒 Products  
+- 📰 Blog  
+- 🔐 Auth pages (Login & Register)
+
+---
+
+## 🚀 Features
+
+- ✅ Hero section with motion animation  
+- ✅ About Us with rich content and team intro  
+- ✅ Product highlights (My Nintendo Store style)  
+- ✅ Responsive blog cards and detail page  
+- ✅ Mobile-friendly navigation  
+- ✅ Login & Register with CTA messages  
+- ✅ Framer Motion animations  
+- ✅ Clean & modular component structure
+
+---
+
+## 🧩 Pages & Content
+
+### 🏢 About Us
+
+**Tagline:**  
+> *Nintendo has been shaping the world of entertainment and innovation since 1889.*
+
+**Vision**  
+> *To create a world full of smiles through the power of play.*
+
+**Mission**  
+> *To craft playful, creative, and unforgettable experiences that bring people together.*
+
+**Meet the Team**  
+> A passionate group of creators, developers, and dreamers building the future of fun.
+
+---
+
+### 🛍️ Products Section
+
+**Title:**  
+> *Discover the Magic of Nintendo Games*
+
+**Description:**  
+> Explore a world of adventure, fun, and imagination with our latest games, consoles, and accessories.
+
+**Call to Play:**  
+> 🎮 *Ready to level up? Dive into our collection and start playing your next favorite game today!*
+
+---
+
+### 🔐 Auth Pages
+
+#### 📝 Register  
+- **Title:** *Create your NINTENDO® account*  
+- **Subtitle:** *Join the Nintendo universe — sign up and start your adventure!*
+
+#### 🔑 Login  
+- **Title:** *Log in to your NINTENDO® account*  
+- **Subtitle:** *Welcome back to the Nintendo universe — continue your adventure!*
+
+---
+
+### 🎉 Welcome Text Snippets (UI)
+
+- *Welcome, Player One!*  
+- *Glad you’re here — let’s play!*  
+- *Your adventure starts now!*
+
+---
+
+## ⚙️ Tech Stack
+
+| Technology    | Description                          |
+| ------------- | ------------------------------------ |
+| **Next.js**   | React framework for full-stack apps  |
+| **Tailwind**  | Utility-first CSS framework          |
+| **Framer Motion** | Smooth animations & transitions |
+| **Backendless** (optional) | Headless backend for data |
+
+---
+
+## 📁 Folder Structure
+├── components/ # Reusable UI components
+├── pages/ # Next.js routing
+├── public/ # Static assets
+├── styles/ # Global styles
+├── utils/ # Helper functions
+└── README.md
+
+
+---
+
+## 🧪 Getting Started
 
 ```bash
+# 1. Clone the repository
+git clone https://github.com/yourusername/nintendo-company-profile.git
+cd nintendo-company-profile
+
+# 2. Install dependencies
+npm install
+
+# 3. Run the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# 4. Open in your browser
+http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+🙏 Credits
+This is a fan-made project for educational and portfolio purposes.
+All trademarks, characters, and media are property of Nintendo Co., Ltd.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+📄 License
+This project is for non-commercial use only.
+Please do not redistribute or monetize without permission.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
