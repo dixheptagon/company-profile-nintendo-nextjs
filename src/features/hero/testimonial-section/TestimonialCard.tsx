@@ -18,7 +18,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 }) => {
   return (
     <section className="h-80">
-      <div className="relative flex min-h-56 w-72 flex-col rounded-xl bg-gray-50 p-4 text-black shadow-xl transition hover:scale-[1.05]">
+      <div className="relative flex min-h-56 w-72 flex-col rounded-xl bg-gray-50 p-4 text-black shadow-xl transition hover:scale-[1.05] hover:cursor-pointer">
         <button className="absolute top-3 right-3 text-white/50 hover:text-white">
           <FaXmark />
         </button>

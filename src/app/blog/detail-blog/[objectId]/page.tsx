@@ -32,7 +32,6 @@ export async function generateMetadata(
 
   // Jika blog tidak ditemukan, kembalikan notFound
   if (!blog) return notFound();
-  console.log(blog);
 
   return {
     title: `${blog.blog_title} | Nintendo Dev Blog`,
@@ -69,7 +68,7 @@ export default async function Page({ params }: IParams) {
   return (
     // Main Content
     <main className="bg-white">
-      <div className="mx-auto my-10 max-w-3xl px-4 py-16 text-black">
+      <div className="mx-auto mt-10 max-w-3xl px-4 py-16 text-black">
         {/* Breadcrumb */}
         <nav className="mb-4 text-sm text-gray-700 hover:text-gray-900">
           <Link href="/" className="cursor-pointer hover:underline">

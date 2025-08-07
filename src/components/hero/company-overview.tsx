@@ -52,7 +52,7 @@ export default function CompanyOverview() {
           {cards.map((card, idx) => (
             <div
               key={idx}
-              className="flex flex-col overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-red-700/50"
+              className="flex flex-col overflow-hidden rounded-xl bg-white shadow-md transition-all duration-300 hover:scale-105 hover:cursor-pointer hover:shadow-xl hover:shadow-red-700/50"
             >
               <div className="p-6 text-left">
                 <div>{card.icon}</div>
@@ -63,8 +63,8 @@ export default function CompanyOverview() {
               </div>
               <div className="relative">
                 <Image
-                  width={500}
-                  height={500}
+                  width={400}
+                  height={220}
                   src={card.image}
                   alt={card.overlay}
                   className="h-46 w-full object-cover"

@@ -176,7 +176,7 @@ export default function CompanyHistorySlider() {
             className="text-center"
           >
             <Image
-              width={300}
+              width={500}
               height={300}
               src={currentItem.image}
               alt={currentItem.year}

@@ -30,7 +30,7 @@ export default function TeamsSection() {
   }, []);
 
   return (
-    <section className="my-5 min-h-screen bg-red-700 px-6 py-16">
+    <section className="mt-5 min-h-screen bg-red-700 px-6 py-16">
       <div className="mx-auto max-w-6xl">
         <h2 className="mb-4 text-center text-3xl font-bold text-white">
           Meet Our Team
