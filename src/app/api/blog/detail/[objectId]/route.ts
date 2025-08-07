@@ -1,11 +1,12 @@
 import { NextResponse, NextRequest } from "next/server";
+import Backendless from "@/lib/backendless";
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { objectId: string } },
+  { params }: { params: Promise<{ objectId: string }> },
 ) {
   try {
-    const { objectId } = params;
+    const { objectId } = await params;
 
     const findDataBlogs = await Backendless.Data.of("BlogPosts").findById({
       objectId,

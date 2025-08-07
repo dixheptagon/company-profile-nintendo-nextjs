@@ -3,9 +3,9 @@ import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 interface IParams {
-  params: {
+  params: Promise<{
     objectId: string;
-  };
+  }>;
 }
 
 // Fungsi untuk mengambil data blog
@@ -57,7 +57,7 @@ export async function generateMetadata(
   };
 }
 
-export function escapeHTML(str: string) {
+function escapeHTML(str: string) {
   return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 
