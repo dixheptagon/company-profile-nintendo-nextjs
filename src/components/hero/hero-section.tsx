@@ -63,7 +63,7 @@ export default function NintendoHero() {
   const { src, title, description } = images[index];
 
   return (
-    <section className="relative h-[42.5rem] w-full overflow-hidden">
+    <section className="relative hidden h-[42.5rem] w-full overflow-hidden md:block">
       <Image
         layout="fill"
         src={src}

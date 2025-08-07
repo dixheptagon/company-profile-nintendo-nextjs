@@ -1,5 +1,6 @@
 import CompanyOverview from "@/components/hero/company-overview";
 import HeroSection from "@/components/hero/hero-section";
+import MobileNintendoHero from "@/components/hero/mobile-hero-section";
 import TestimonialSection from "@/components/hero/testimonial-section";
 import React from "react";
 
@@ -7,6 +8,7 @@ export default function Page() {
   return (
     <main>
       <HeroSection />
+      <MobileNintendoHero />
       <CompanyOverview />
       <TestimonialSection />
     </main>
