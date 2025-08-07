@@ -110,8 +110,9 @@ export default function CreateBlog() {
               <Image
                 src={preview}
                 alt="Preview"
-                className="w-full rounded object-contain"
-                style={{ maxHeight: "200px" }}
+                className="w-full rounded-xl object-contain"
+                width={256}
+                height={256}
                 onError={(e) => {
                   (e.target as HTMLImageElement).style.display = "none";
                 }}
